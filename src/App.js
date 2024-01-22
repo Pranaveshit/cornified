@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+
+import { motion } from "framer-motion";
+
 function App() {
+  const text = "Unveiling the Sweet Symphony of Cornified Elegance – Where Every Kernel Sparks a Taste of Irresistible Allure! 🌽✨ Stay tuned for a corn Extravaganza that Redefines Deliciousness!".split(" ");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      {text.map((el, i) => (
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.25,
+            delay: i / 10
+          }}
+          key={i}
         >
-          Learn React
-        </a>
-      </header>
+          {el}{" "}
+        </motion.span>
+      ))}
     </div>
   );
 }
